@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Confirmation Inscription Vendeur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #f9f9f9;
+    }
+    .btn {
+      padding: 15px 30px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 30px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Félicitations ! 🎉</h1>
+  <p>Votre compte vendeur a été créé avec succès.</p>
+  <a href="#" id="btnVoirCompte" class="btn">Aller voir le compte</a>
+
+  <script type="module">
+    // Récupérer userId depuis URL
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('userId');
+
+    const btnVoirCompte = document.getElementById('btnVoirCompte');
+
+    if (!userId) {
+      alert("Erreur : Identifiant utilisateur manquant.");
+      btnVoirCompte.style.display = 'none';
+    } else {
+      btnVoirCompte.href = `vendeur_compte.html?userId=${userId}`;
+    }
+  </script>
+</body>
+</html>
